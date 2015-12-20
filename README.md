@@ -5,7 +5,7 @@ Couple of functions to operate with collections/iterators.
  - chain(iterable1, iterable2, ...) see <a href="https://docs.python.org/2/library/itertools.html#itertools.chain">itertools.chain</a>
 
 ## Install
-    npm install Ostrovski/iv-itertools
+    npm install Ostrovski/js-itertools
 
 ## Usage
     var chain = require('iv-itertools').chain
