@@ -1,0 +1,19 @@
+{
+  "name": "iv-itertools",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ostrovski/js-itertools.git"
+  },
+  "author": "Ostrovski",
+  "description": "Attempt to port Python's itertools to JavaScript",
+  "main": "itertools.js",
+  "private": true,
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
