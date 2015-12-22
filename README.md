@@ -2,8 +2,13 @@
 Couple of functions to operate with collections/iterators.
 
 ### Currently supported tools:
- - chain(iterable1, iterable2, ...) see <a href="https://docs.python.org/2/library/itertools.html#itertools.chain">itertools.chain</a>
-
+ - `chain(iterable1, iterable2, ...)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.chain">itertools.chain</a>
+ - `ifilter(predicate, iterable)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.ifilter">itertools.ifilter</a> (WiP)
+ - `toIterator(iterable)` accepts iterators|iterable|subscriptable data type and wraps it with 
+   explicit iterator object if required.
+ - `toIterable(iterable, iterator)` mixes in an iterator object to the passed first argument. 
+   Uses Symbol.iterator if available.
+   
 ## Install
     npm install Ostrovski/js-itertools
 
