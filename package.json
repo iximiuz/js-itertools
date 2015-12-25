@@ -15,5 +15,8 @@
   },
   "scripts": {
     "test": "mocha"
+  },
+  "engines": {
+    "node": "~4.1.1"
   }
 }
