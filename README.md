@@ -4,6 +4,7 @@ Couple of functions to operate with collections/iterators.
 ### Currently supported tools:
  - `chain(iterable1, iterable2, ...)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.chain">itertools.chain</a>
  - `ifilter(predicate, iterable)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.ifilter">itertools.ifilter</a> (WiP)
+ - `toArray(iterable)` unrolls an iterable to an array. If an argument is array by itself it'll be returned as is. Be sure that you are not passing infinite iterator.
  - `toIterator(iterable)` accepts iterators|iterable|subscriptable data type and wraps it with 
    explicit iterator object if required.
  - `toIterable(iterable, iterator)` mixes in an iterator object to the passed first argument. 
