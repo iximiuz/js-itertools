@@ -1,4 +1,7 @@
 # Itertools
+
+[![Build Status](https://travis-ci.org/Ostrovski/js-itertools.svg)](https://travis-ci.org/Ostrovski/js-itertools)
+
 Couple of functions to operate with collections/iterators.
 
 ### Currently supported tools:
