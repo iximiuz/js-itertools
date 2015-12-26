@@ -6,7 +6,8 @@ Couple of functions to operate with collections/iterators.
 
 ### Currently supported tools:
  - `chain(iterable1, iterable2, ...)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.chain">itertools.chain</a>
- - `ifilter(predicate, iterable)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.ifilter">itertools.ifilter</a> (WiP)
+ - `ifilter(predicate, iterable)` see <a href="https://docs.python.org/2/library/itertools.html#itertools.ifilter">itertools.ifilter</a>
+ - `product(iterable1, iterable2, ..., repeat=1)` see <a href="https://docs.python.org/2.7/library/itertools.html#itertools.product">itertools.product</a> (WiP) 
  - `toArray(iterable)` unrolls an iterable to an array. If an argument is array by itself it'll be returned as is. Be sure that you are not passing infinite iterator.
  - `toIterator(iterable)` accepts iterators|iterable|subscriptable data type and wraps it with 
    explicit iterator object if required.
@@ -34,3 +35,6 @@ Couple of functions to operate with collections/iterators.
 
 ## Test
     npm run test
+    
+## License
+(The MIT License) See LICENSE file.    

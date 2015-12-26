@@ -1,12 +1,27 @@
 {
   "name": "iv-itertools",
-  "version": "0.0.2",
+  "author": {
+    "name": "Ivan Velichko",
+    "email": "iximiuz@gmail.com"
+  },
+  "version": "0.0.3",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Ostrovski/js-itertools.git"
   },
-  "author": "Ostrovski",
+  "bugs": {
+    "url": "https://github.com/Ostrovski/js-itertools/issues"
+  },
   "description": "Attempt to port Python's itertools to JavaScript",
+  "keywords": [
+    "iterator",
+    "iterable",
+    "functional",
+    "itertools",
+    "chain",
+    "filter"
+  ],
   "main": "itertools.js",
   "private": true,
   "devDependencies": {
