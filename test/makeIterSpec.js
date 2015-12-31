@@ -5,16 +5,16 @@ var assert = chai.assert;
 
 var compat = require('../lib/compat');
 var itertools = require('../itertools');
-var toIterable = itertools.toIterable;
-var toIterator = itertools.toIterator;
+var fuseIter = itertools.fuseIter;
+var makeIter = itertools.makeIter;
 
-describe("toIterator test suite", function() {
-    it("toIterator works with arrays", function() {
+describe("makeIter test suite", function() {
+    it("makeIter works with arrays", function() {
         var a = [1, 2, 3];
         var expectedVals = a.slice();
         var expectedLen = a.length;
 
-        var iter = toIterator(a);
+        var iter = makeIter(a);
         var next = iter.next();
         while (!next.done) {
             assert.equal(next.value, expectedVals.shift());
@@ -24,11 +24,11 @@ describe("toIterator test suite", function() {
         assert.equal(a.length, expectedLen);
     });
 
-    it("toIterator works with strings", function() {
+    it("makeIter works with strings", function() {
         var str = 'abc';
         var expectedVals = str.split('');
 
-        var iter = toIterator(str);
+        var iter = makeIter(str);
         var next = iter.next();
         while (!next.done) {
             assert.equal(next.value, expectedVals.shift());
@@ -37,7 +37,30 @@ describe("toIterator test suite", function() {
         assert.ok(next.done);
     });
 
-    it("toIterator works with iterators", function() {
+    it("makeIter works with iterables", function() {
+        var createIterable = function() {
+            var iter = {
+                idx: -1,
+                next: function() {
+                    return (this.idx++ < 3)
+                        ? {done: false, value: this.idx}
+                        : {done: true}
+                }
+            };
+            return fuseIter({}, function() { return iter; });
+        };
+
+        var expectedVals = [0, 1, 2, 3];
+        var iter = makeIter(createIterable());
+        var next = iter.next();
+        while (!next.done) {
+            assert.equal(next.value, expectedVals.shift());
+            next = iter.next();
+        }
+        assert.ok(next.done);
+    });
+
+    it("makeIter don't not work with iterators", function() {
         var createIterator = function() {
             return {
                 idx: -1,
@@ -49,39 +72,13 @@ describe("toIterator test suite", function() {
             };
         };
 
-        var iter = createIterator();
-        var expectedVals = [0, 1, 2, 3];
-        iter = toIterator(iter);
-        var next = iter.next();
-        while (!next.done) {
-            assert.equal(next.value, expectedVals.shift());
-            next = iter.next();
+        var thrown = false;
+        try {
+            makeIter(createIterator());
+
+        } catch(e) {
+            thrown = true;
         }
-        assert.ok(next.done);
-    });
-
-    it("toIterator works with iterables", function() {
-        var createIterable = function() {
-            var iter = {
-                idx: -1,
-                next: function() {
-                    return (this.idx++ < 3)
-                        ? {done: false, value: this.idx}
-                        : {done: true}
-                }
-            };
-
-            return toIterable({}, iter);
-        };
-
-        var iter = createIterable();
-        var expectedVals = [0, 1, 2, 3];
-        iter = toIterator(iter);
-        var next = iter.next();
-        while (!next.done) {
-            assert.equal(next.value, expectedVals.shift());
-            next = iter.next();
-        }
-        assert.ok(next.done);
+        assert.ok(thrown, 'makeIter() must not accept an iterators.');
     });
 });
