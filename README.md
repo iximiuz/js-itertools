@@ -1,6 +1,6 @@
 # Itertools
 
-[![Build Status](https://travis-ci.org/Ostrovski/js-itertools.svg)](https://travis-ci.org/Ostrovski/js-itertools)
+[![Build Status](https://travis-ci.org/iximiuz/js-itertools.svg)](https://travis-ci.org/iximiuz/js-itertools)
 
 Couple of functions to operate with collections/iterators.
 
